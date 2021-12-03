@@ -9,4 +9,8 @@ k_but = InlineKeyboardMarkup([[InlineKeyboardButton('Generate string', callback_
 # Start Message
 @Client.on_message(filters.private & filters.incoming & filters.command("start"))
 async def start(bot, msg):
-	await bot.send_message(f'**Hey**\n\n__Click on Below Button to use me__', reply_markup=k_but)
+	await bot.send_message(
+		msg.chat.id,
+		'**Hey**\n\n__Click on Below Button to use me__',
+		reply_markup=k_but
+	)
